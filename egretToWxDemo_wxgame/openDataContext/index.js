@@ -8,7 +8,7 @@ var assets = {
   panel: "resource/assets/Panel/border.png",
   next: "resource/assets/ToggleSwitch/on.png",
   last: "resource/assets/ToggleSwitch/off.png",
-  title: "resource/rankingtitle.png"
+  title: "resource/assets/rankingtitle.png"
 };
 /**
  * canvas 大小
