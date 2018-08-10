@@ -29,8 +29,6 @@ declare function setTimeout(callback: ()=>void, delay: number, rest: any): numbe
 declare function setInterval(callback: ()=>void, delay: number, rest: any): number;
 
 declare const wx: {
-
-    createUserInfoButton(any):any;
     /**
      * 创建一个画布对象。首次调用创建的是显示在屏幕上的画布，之后调用创建的都是离屏画布。
      */
@@ -281,7 +279,7 @@ declare const wx: {
     /**
      * 主动拉起转发，进入选择通讯录界面。
      */
-    shareAppMessage(object: {title:string,imageUrl:string,query:string,success:(res:any)=>void,fail:(res:any)=>void,complete:(res:any)=>void}): void;
+    shareAppMessage(object: {title:string,imageUrl:string,query:string}): void;
     updateShareMenu(object: {withShareTicket:boolean,success:(res:any)=>void,fail:(res:any)=>void,complete:(res:any)=>void}): void;
     setEnableDebug(object: {enableDebug:boolean,success:(res:any)=>void,fail:(res:any)=>void,complete:(res:any)=>void}): void;
     /**
@@ -332,7 +330,7 @@ declare const wx: {
     /**
      * 显示模态对话框
      */
-    showModal(object: {title:string,content:string,showCancel:boolean,cancelText:string,cancelColor:string,confirmText:string,confirmColor:string,success:(res:any)=>void,fail:(res:any)=>void,complete:(res:any)=>void}): void;
+    showModal(object: {title:string,content:string,showCancel:boolean,cancelText?:string,cancelColor?:string,confirmText?:string,confirmColor?:string,success?:(res:any)=>void,fail?:(res:any)=>void,complete?:(res:any)=>void}): void;
     /**
      * 显示消息提示框
      */
@@ -428,6 +426,8 @@ declare const wx: {
      * 发起米大师支付
      */
     requestMidasPayment(object: {mode:string,env:number,offerId:string,currencyType:string,platform:string,buyQuantity:number,zoneId:string,success:(res:any)=>void,fail:(res:any)=>void,complete:(res:any)=>void}): void;
+
+    createGameClubButton(object);
 }
 
 declare interface Canvas {
@@ -650,6 +650,10 @@ declare interface Worker {
 }
 
 declare interface InnerAudioContext {
+    src :any;
+    autoplay :any;
+    loop :any;
+
     /**
      * 销毁当前实例
      */
@@ -749,6 +753,8 @@ declare interface InnerAudioContext {
 }
 
 declare interface RecorderManager {
+
+
     /**
      * 监听录音暂停事件
      */
